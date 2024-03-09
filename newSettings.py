@@ -27,7 +27,7 @@ print("Available training types: Random2French (0), French2Random (1), French2Po
 newSettings['trainingType'] = trainingTypesEnum[int(input('Enter the training type: '))]
 newSettings['probRessample'] = float(input('Enter the probability of ressample (between 0.0 and 1.0): '))
 newSettings['minAmountTransfer'] = int(input('Enter the minimum amount of transfer to review bag: '))
-newSettings['maxAmountRestransfer'] = int(input('Enter the maximum amount of retransfer (out of the review bag): '))
+newSettings['maxAmountRetransfer'] = int(input('Enter the maximum amount of retransfer (out of the review bag): '))
 
 print("Settings configured. The new settings are: ", newSettings)
 

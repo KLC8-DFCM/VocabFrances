@@ -15,7 +15,7 @@ from colorama import Fore
 
 # Configs :
 
-# probRessample, minAmountTransfer, maxAmountRestransfer
+# probRessample, minAmountTransfer, maxAmountRetransfer
 
 wordsFile = "defaultWords.csv"
 
@@ -27,7 +27,7 @@ DEFAULT_SETTINGS = {
     'trainingType': 'Portuguese2French', # Random2French, French2Random, French2Portuguese, Portuguese2French, French2English, English2French  
     'probRessample': 0.1,
     'minAmountTransfer': 7,
-    'maxAmountRestransfer': 3
+    'maxAmountRetransfer': 3
 }
 '''
 
@@ -129,7 +129,7 @@ def update_data(data, word, answer, settings):
         if answer:
             data['stats'].loc[data['words']['wordFrench'] == word['wordFrench'], 'nTimesReviewCorrect'] += 1
         
-        if data['stats'][data['words']['wordFrench'] == word['wordFrench']]['nTimesReviewCorrect'].values[0] >= settings['maxAmountRestransfer']:
+        if data['stats'][data['words']['wordFrench'] == word['wordFrench']]['nTimesReviewCorrect'].values[0] >= settings['maxAmountRetransfer']:
             data['stats'].loc[data['words']['wordFrench'] == word['wordFrench'], 'ReviewBag'] = 0
             data['stats'].loc[data['words']['wordFrench'] == word['wordFrench'], 'nTimesCorrect'] = 0
             # As outras variáveis são mantidas como estão, para manter algo como um histórico minimamente decente
